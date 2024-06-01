@@ -31,5 +31,9 @@ class ToDo {
       'isStarred': isStarred,
       'dueDate': dueDate.toIso8601String(),
     };
+  } 
+  bool isOverdue() {
+    return dueDate.isBefore(DateTime.now());
   }
 }
+

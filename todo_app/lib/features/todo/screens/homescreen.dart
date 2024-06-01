@@ -14,7 +14,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
   static final List<Widget> _widgetOptions = <Widget>[
-    const ToDoListScreen(),
+     ToDoListScreen(),
     const FavoritesScreen(),
     const AddToDoScreen(),
     const Center(child: Text('Calender Coming soon...')),
@@ -30,6 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: const Text('To Do List'),),
       body: _widgetOptions.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
         unselectedItemColor: Colors.black,

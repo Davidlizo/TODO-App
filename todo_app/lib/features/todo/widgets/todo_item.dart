@@ -5,8 +5,9 @@ import '../todo_provider.dart';
 
 class ToDoItem extends StatelessWidget {
   final ToDo todo;
+  final bool? isOverdue;
 
-  const ToDoItem({super.key, required this.todo});
+  const ToDoItem({super.key, required this.todo, this.isOverdue,});
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +19,13 @@ class ToDoItem extends StatelessWidget {
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
         style: TextStyle(
+          color: isOverdue ?? false ? Colors.red : null,
           decoration: todo.isCompleted ? TextDecoration.lineThrough : null,
         ),
       ),
+      subtitle:isOverdue != null
+          ? Text(isOverdue.toString())
+          : null,
       leading: Checkbox(
         activeColor: Colors.blue,
         value: todo.isCompleted,

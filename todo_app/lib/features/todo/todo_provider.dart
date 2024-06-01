@@ -19,7 +19,7 @@ class ToDoProvider with ChangeNotifier {
       title: title,
       isCompleted: false,
       isStarred: false,
-      dueDate: DateTime.now().add(const Duration(days: 7)), // example due date
+      dueDate: DateTime.now().add(const Duration(days: 7)),
     );
     _todos.add(newToDo);
     await saveToDos();
@@ -43,6 +43,7 @@ class ToDoProvider with ChangeNotifier {
       notifyListeners();
     }
   }
+
 
   void deleteToDo(String id) async {
     _todos.removeWhere((todo) => todo.id == id);
